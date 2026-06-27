@@ -1,5 +1,5 @@
 import { useState, memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCartStore } from '@/store/useCartStore';
 import type { Product } from '@/mocks/products';
 import { formatPrice } from '@/mocks/products';
@@ -10,6 +10,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = memo(function ProductCard({ product, onQuickView }: ProductCardProps) {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showSizeError, setShowSizeError] = useState(false);
@@ -91,7 +92,8 @@ const ProductCard = memo(function ProductCard({ product, onQuickView }: ProductC
 
         {/* Hover overlay */}
         <div
-          className={`absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-3 transition-opacity duration-200 ${hovered ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          onClick={() => navigate(`/produto/${product.slug}`)}
+          className={`absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-3 transition-opacity duration-200 cursor-pointer ${hovered ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <button
             onClick={(e) => {
@@ -105,6 +107,7 @@ const ProductCard = memo(function ProductCard({ product, onQuickView }: ProductC
           </button>
           <Link
             to={`/produto/${product.slug}`}
+            onClick={(e) => e.stopPropagation()}
             className="px-6 py-2.5 bg-teal text-white font-body text-sm font-medium rounded-md hover:bg-teal-dark transition-colors"
           >
             Ver detalhes
