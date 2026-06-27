@@ -48,14 +48,17 @@ export default function Favorites() {
         </p>
 
         {favoritedProducts.length === 0 ? (
-          <div className="text-center py-24 bg-white rounded-lg border border-brand-border px-4">
-            <div className="w-16 h-16 mx-auto flex items-center justify-center rounded-full bg-cream mb-4">
+          <div 
+            className="text-center bg-white rounded-lg border border-brand-border"
+            style={{ padding: '120px 32px' }}
+          >
+            <div className="w-16 h-16 mx-auto flex items-center justify-center rounded-full bg-cream mb-6">
               <i className="ri-heart-line text-3xl text-brand-muted" />
             </div>
-            <h2 className="font-display text-2xl text-brand-text mb-2">
+            <h2 className="font-display text-2xl md:text-3xl text-brand-text mb-3">
               Sua lista de favoritos está vazia
             </h2>
-            <p className="font-body text-sm text-brand-secondary max-w-md mx-auto mb-6">
+            <p className="font-body text-sm md:text-base text-brand-secondary max-w-md mx-auto mb-8">
               Navegue pelo nosso catálogo e clique no ícone de coração para salvar seus modelos favoritos aqui.
             </p>
             <Link

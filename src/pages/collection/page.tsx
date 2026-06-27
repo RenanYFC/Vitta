@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ProductCard from '@/components/base/ProductCard';
 import QuickViewModal from '@/components/feature/QuickViewModal';
@@ -15,6 +15,12 @@ export default function Collection() {
   const urlCategory = searchParams.get('categoria');
 
   const [selectedCategory, setSelectedCategory] = useState(urlCategory || 'todos');
+
+  // Sync state with URL category when it changes
+  useEffect(() => {
+    setSelectedCategory(urlCategory || 'todos');
+  }, [urlCategory]);
+
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 600]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
@@ -28,6 +34,21 @@ export default function Collection() {
   const filteredProducts = useMemo(() => {
     if (!products || products.length === 0) return [];
     let result = [...products];
+
+    // Filter by search query from URL parameter
+    const urlSearch = searchParams.get('busca');
+    if (urlSearch) {
+      const q = urlSearch.toLowerCase();
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.shortDesc.toLowerCase().includes(q) ||
+          p.categoryLabel.toLowerCase().includes(q) ||
+          p.material.toLowerCase().includes(q) ||
+          p.color.toLowerCase().includes(q)
+      );
+    }
 
     if (selectedCategory && selectedCategory !== 'todos') {
       result = result.filter((p) => p.category === selectedCategory);
@@ -60,7 +81,7 @@ export default function Collection() {
     }
 
     return result;
-  }, [products, selectedCategory, selectedSizes, priceRange, selectedColors, selectedMaterials, sortOption]);
+  }, [products, selectedCategory, selectedSizes, priceRange, selectedColors, selectedMaterials, sortOption, searchParams]);
 
   const toggleSize = (size: string) => {
     setSelectedSizes((prev) =>

@@ -209,7 +209,7 @@ export default function ProductDetail() {
                 </button>
               </div>
               <div
-                className={`grid grid-cols-4 sm:grid-cols-8 gap-2 ${sizeError ? 'animate-shake' : ''}`}
+                className={`flex flex-wrap gap-2 ${sizeError ? 'animate-shake' : ''}`}
               >
                 {product.variants.map((variant) => (
                   <button
@@ -223,7 +223,7 @@ export default function ProductDetail() {
                       }
                     }}
                     disabled={variant.stock <= 0}
-                    className={`w-full aspect-square flex items-center justify-center rounded-sm font-body text-sm font-medium transition-all cursor-pointer relative ${
+                    className={`w-12 h-12 flex items-center justify-center rounded-sm font-body text-sm font-medium transition-all cursor-pointer relative ${
                       variant.stock > 0
                         ? selectedSize === variant.size
                           ? 'bg-teal text-white border border-teal'

@@ -1,14 +1,28 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   const imageUrl = "https://readdy.ai/api/search-image?query=Elegant%20confident%20woman%20in%20her%2040s%20walking%20gracefully%20on%20a%20sunlit%20autumn%20street%20wearing%20stylish%20leather%20ankle%20boots%20warm%20cream%20and%20terracotta%20color%20palette%20soft%20golden%20hour%20lighting%20editorial%20fashion%20photography%20blurred%20warm%20background%20sophisticated%20and%20approachable%20mood%20high%20end%20lifestyle%20magazine%20style&width=1600&height=800&seq=vitta-hero-real-1&orientation=landscape";
+  const [bgPos, setBgPos] = useState('center');
+
+  useEffect(() => {
+    const handleResize = () => {
+      setBgPos(window.innerWidth < 768 ? '45% center' : 'center');
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section className="relative w-full min-h-[520px] md:min-h-[600px] lg:min-h-[680px] flex items-center overflow-hidden bg-cream">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${imageUrl})` }}
+        className="absolute inset-0 bg-cover bg-no-repeat"
+        style={{ 
+          backgroundImage: `url(${imageUrl})`,
+          backgroundPosition: bgPos
+        }}
       />
 
       {/* Overlays */}
