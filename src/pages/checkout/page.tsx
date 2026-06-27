@@ -430,7 +430,7 @@ export default function Checkout() {
                 {items.map((item) => (
                   <div key={`${item.product.id}-${item.size}`} className="flex items-center gap-3">
                     <div className="w-14 h-14 rounded-md overflow-hidden bg-cream flex-shrink-0">
-                      <img src={item.product.images[0]} alt={item.product.name} className="w-full h-full object-contain p-1" />
+                      <img src={item.product.images[0]} alt={item.product.name} className="w-full h-full object-contain p-1" style={{ mixBlendMode: 'multiply' }} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-body text-xs font-medium text-brand-text truncate">{item.product.name}</p>

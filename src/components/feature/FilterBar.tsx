@@ -11,9 +11,10 @@ interface FilterBarProps {
 const filters = [
   { id: 'todos', label: 'Todos' },
   { id: 'botas', label: 'Botas' },
-  { id: 'coturnos', label: 'Coturnos' },
-  { id: 'mocassins', label: 'Mocassins' },
-  { id: 'couro-legitimo', label: 'Couro Legítimo' },
+  { id: 'oxfords', label: 'Oxfords' },
+  { id: 'sandalias', label: 'Sandálias' },
+  { id: 'sapatos', label: 'Sapatos' },
+  { id: 'couro', label: 'Couro' },
   { id: 'ate-300', label: 'Até R$300' },
   { id: 'lancamentos', label: 'Lançamentos' },
 ];

@@ -13,7 +13,7 @@ export default function Footer() {
               <img
                 src={logoUrl}
                 alt="Vitta Calçados"
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-12 w-auto object-contain"
                 style={{ maxHeight: '48px' }}
               />
             </Link>

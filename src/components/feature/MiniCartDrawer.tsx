@@ -37,7 +37,7 @@ export default function MiniCartDrawer({ isOpen, onClose }: MiniCartDrawerProps)
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[70]">
+    <div className="fixed inset-0" style={{ zIndex: 150 }}>
       {/* Overlay */}
       <div
         className="absolute inset-0 bg-black/50"

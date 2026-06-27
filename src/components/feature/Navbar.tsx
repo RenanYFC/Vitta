@@ -42,7 +42,7 @@ export default function Navbar() {
               <img
                 src="https://storage.readdy-site.link/project_files/1a92d057-4aef-472e-902f-0a72a93eadbc/b4648f43-e5e9-4d69-a3be-fdc92ab130f5_Vitta-01.jpg.jpeg?v=cdebadaeb7cd7cc5998b437d0aceae2a"
                 alt="Vitta Calçados"
-                className="h-10 max-h-[40px] w-auto object-contain"
+                className="h-12 max-h-[48px] w-auto object-contain"
               />
             </Link>
 

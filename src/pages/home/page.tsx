@@ -5,28 +5,36 @@ import FilterBar from '@/components/feature/FilterBar';
 import ProductCard from '@/components/base/ProductCard';
 import SectionTitle from '@/components/base/SectionTitle';
 import AnimatedSection from '@/components/feature/AnimatedSection';
-import { products, formatPrice } from '@/mocks/products';
+import { formatPrice } from '@/mocks/products';
+import { useProductStore } from '@/store/useProductStore';
 
 export default function Home() {
+  const products = useProductStore((s) => s.products);
+  const loading = useProductStore((s) => s.loading);
   const [activeFilter, setActiveFilter] = useState('todos');
   const [sortOption, setSortOption] = useState('relevancia');
 
   const filteredProducts = useMemo(() => {
+    if (!products || products.length === 0) return [];
     let result = [...products];
 
     // Apply filter
     if (activeFilter === 'botas') {
       result = result.filter((p) => p.category === 'botas');
-    } else if (activeFilter === 'coturnos') {
-      result = result.filter((p) => p.category === 'coturnos');
-    } else if (activeFilter === 'mocassins') {
-      result = result.filter((p) => p.category === 'mocassins');
+    } else if (activeFilter === 'oxfords') {
+      result = result.filter((p) => p.category === 'oxfords');
+    } else if (activeFilter === 'sandalias') {
+      result = result.filter((p) => p.category === 'sandalias');
+    } else if (activeFilter === 'sapatos') {
+      result = result.filter((p) => p.category === 'sapatos');
+    } else if (activeFilter === 'couro') {
+      result = result.filter((p) => p.tags.includes('couro'));
     } else if (activeFilter === 'couro-legitimo') {
-      result = result.filter((p) => p.tags.includes('couro-legitimo'));
+      result = result.filter((p) => p.tags.includes('couro-legitimo') || p.tags.includes('couro'));
     } else if (activeFilter === 'ate-300') {
       result = result.filter((p) => p.price <= 30000);
     } else if (activeFilter === 'lancamentos') {
-      result = result.filter((p) => p.badge === 'novo');
+      result = result.filter((p) => p.badge === 'novo' || p.badge === 'new');
     }
 
     // Apply sort
@@ -39,7 +47,18 @@ export default function Home() {
     }
 
     return result;
-  }, [activeFilter, sortOption]);
+  }, [products, activeFilter, sortOption]);
+
+  if (loading || !products || products.length === 0) {
+    return (
+      <div className="min-h-screen bg-off-white flex items-center justify-center py-20">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-12 h-12 border-4 border-teal border-t-transparent rounded-full animate-spin"></div>
+          <span className="font-body text-sm text-brand-secondary">Carregando catálogo...</span>
+        </div>
+      </div>
+    );
+  }
 
   const featuredProduct = products[0];
 
@@ -62,7 +81,7 @@ export default function Home() {
       {/* Product Grid */}
       <AnimatedSection animation="fade-in-up" delay={200}>
         <section className="w-full px-4 md:px-8 lg:px-12 py-8 md:py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ rowGap: '40px', columnGap: '24px' }}>
             {filteredProducts.map((product, index) => (
               <div
                 key={product.id}

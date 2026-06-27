@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "slug": "bota-caramelo-cano-curto-bico-preto-salto-madeira",
+    "name": "Bota Caramelo Cano Curto com Bico Preto",
+    "description": "Bota feminina em couro caramelo com cano curto, bico preto e salto em madeira. Um modelo elegante e marcante, ideal para composições modernas com toque artesanal.",
+    "shortDesc": "Couro caramelo, bico preto e salto madeira",
+    "price": 36990,
+    "originalPrice": 41990,
+    "category": "botas",
+    "categoryLabel": "Botas",
+    "images": [
+      "/imagens-produtos/Bota caramelo cano curto com bico preto e salto madeira.png"
+    ],
+    "variants": [
+      { "size": "36", "stock": 5 },
+      { "size": "37", "stock": 7 },
+      { "size": "38", "stock": 4 },
+      { "size": "39", "stock": 3 }
+    ],
+    "tags": ["bota", "couro", "caramelo", "salto-madeira", "elegante"],
+    "badge": "new",
+    "badgeLabel": "Novidade",
+    "material": "Couro",
+    "color": "Caramelo"
+  },
+  {
+    "id": "2",
+    "slug": "bota-caramelo-cano-medio-fivela-lateral",
+    "name": "Bota Caramelo Cano Médio com Fivela Lateral",
+    "description": "Bota feminina em couro caramelo com cano médio, fivela lateral e salto bloco preto. O acabamento estruturado garante presença e conforto para o uso diário.",
+    "shortDesc": "Cano médio, fivela lateral e salto bloco",
+    "price": 39990,
+    "originalPrice": 45990,
+    "category": "botas",
+    "categoryLabel": "Botas",
+    "images": [
+      "/imagens-produtos/Bota caramelo cano médio com fivela lateral.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 3 },
+      { "size": "36", "stock": 6 },
+      { "size": "37", "stock": 5 },
+      { "size": "38", "stock": 4 }
+    ],
+    "tags": ["bota", "cano-medio", "fivela", "caramelo", "inverno"],
+    "badge": "bestseller",
+    "badgeLabel": "Best Seller",
+    "material": "Couro",
+    "color": "Caramelo"
+  },
+  {
+    "id": "3",
+    "slug": "oxford-bege-couro-cadarco-bico-quadrado",
+    "name": "Oxford Bege de Couro com Cadarço",
+    "description": "Oxford feminino em couro bege com cadarço frontal e bico quadrado. Uma peça versátil, confortável e sofisticada para looks casuais ou profissionais.",
+    "shortDesc": "Oxford bege com cadarço e bico quadrado",
+    "price": 32990,
+    "originalPrice": 37990,
+    "category": "oxfords",
+    "categoryLabel": "Oxfords",
+    "images": [
+      "/imagens-produtos/Oxford bege de couro com cadarço e bico quadrado.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 4 },
+      { "size": "36", "stock": 8 },
+      { "size": "37", "stock": 6 },
+      { "size": "38", "stock": 5 }
+    ],
+    "tags": ["oxford", "bege", "couro", "cadarco", "casual"],
+    "badge": "sale",
+    "badgeLabel": "Oferta",
+    "material": "Couro",
+    "color": "Bege"
+  },
+  {
+    "id": "4",
+    "slug": "sandalia-vermelha-salto-bloco-tira-tornozelo",
+    "name": "Sandália Vermelha de Salto Bloco",
+    "description": "Sandália feminina vermelha em couro com salto bloco preto, abertura frontal e tira ajustável no tornozelo. Um modelo elegante para ocasiões especiais e produções sofisticadas.",
+    "shortDesc": "Salto bloco, tira no tornozelo e couro vermelho",
+    "price": 29990,
+    "originalPrice": 34990,
+    "category": "sandalias",
+    "categoryLabel": "Sandálias",
+    "images": [
+      "/imagens-produtos/Sandália vermelha de salto bloco com tira no tornozelo.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 6 },
+      { "size": "36", "stock": 7 },
+      { "size": "37", "stock": 5 },
+      { "size": "38", "stock": 2 }
+    ],
+    "tags": ["sandalia", "vermelha", "salto-bloco", "festa", "elegante"],
+    "badge": "highlight",
+    "badgeLabel": "Destaque",
+    "material": "Couro",
+    "color": "Vermelho"
+  },
+  {
+    "id": "5",
+    "slug": "sandalia-vinho-bege-salto-madeira-tiras-cruzadas",
+    "name": "Sandália Vinho e Bege com Tiras Cruzadas",
+    "description": "Sandália feminina em couro vinho e bege com tiras cruzadas, salto em madeira e fechamento no tornozelo. O design combina elegância retrô com acabamento artesanal.",
+    "shortDesc": "Tiras cruzadas, salto madeira e acabamento artesanal",
+    "price": 31990,
+    "originalPrice": 36990,
+    "category": "sandalias",
+    "categoryLabel": "Sandálias",
+    "images": [
+      "/imagens-produtos/Sandália vinho e bege com salto madeira e tiras cruzadas.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 4 },
+      { "size": "36", "stock": 5 },
+      { "size": "37", "stock": 6 },
+      { "size": "38", "stock": 3 }
+    ],
+    "tags": ["sandalia", "vinho", "bege", "salto-madeira", "retro"],
+    "badge": "new",
+    "badgeLabel": "Novidade",
+    "material": "Couro",
+    "color": "Vinho e Bege"
+  },
+  {
+    "id": "6",
+    "slug": "sapato-boneca-marrom-detalhe-floral-vermelho-verde",
+    "name": "Sapato Boneca Marrom com Detalhe Floral",
+    "description": "Sapato boneca marrom com tira no tornozelo e detalhe floral em tons de vermelho e verde. Um modelo delicado, confortável e com visual artesanal.",
+    "shortDesc": "Boneca marrom com detalhe floral artesanal",
+    "price": 28990,
+    "originalPrice": 33990,
+    "category": "sapatos",
+    "categoryLabel": "Sapatos",
+    "images": [
+      "/imagens-produtos/Sapato boneca marrom com detalhe floral vermelho e verde.png"
+    ],
+    "variants": [
+      { "size": "34", "stock": 2 },
+      { "size": "35", "stock": 5 },
+      { "size": "36", "stock": 6 },
+      { "size": "37", "stock": 4 }
+    ],
+    "tags": ["sapato-boneca", "marrom", "floral", "artesanal", "delicado"],
+    "badge": "vintage",
+    "badgeLabel": "Vintage",
+    "material": "Couro",
+    "color": "Marrom"
+  },
+  {
+    "id": "7",
+    "slug": "sapato-boneca-preto-detalhe-floral-azul-bege",
+    "name": "Sapato Boneca Preto com Detalhe Floral",
+    "description": "Sapato boneca preto com tira no tornozelo e aplicações florais in azul e bege. O modelo une conforto, charme e um toque criativo para looks casuais.",
+    "shortDesc": "Boneca preto com aplicação floral colorida",
+    "price": 27990,
+    "originalPrice": 32990,
+    "category": "sapatos",
+    "categoryLabel": "Sapatos",
+    "images": [
+      "/imagens-produtos/Sapato boneca preto com detalhe floral azul e bege.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 3 },
+      { "size": "36", "stock": 7 },
+      { "size": "37", "stock": 5 },
+      { "size": "38", "stock": 4 }
+    ],
+    "tags": ["sapato-boneca", "preto", "floral", "azul", "confortavel"],
+    "badge": "exclusive",
+    "badgeLabel": "Exclusivo",
+    "material": "Couro",
+    "color": "Preto"
+  },
+  {
+    "id": "8",
+    "slug": "sapato-boneca-preto-tiras-coloridas-bico",
+    "name": "Sapato Boneca Preto com Tiras Coloridas",
+    "description": "Sapato boneca preto com tira ajustável, salto baixo e detalhes coloridos trançados no bico. Uma opção confortável e criativa para composições casuais.",
+    "shortDesc": "Boneca preto com detalhes coloridos no bico",
+    "price": 26990,
+    "originalPrice": 31990,
+    "category": "sapatos",
+    "categoryLabel": "Sapatos",
+    "images": [
+      "/imagens-produtos/Sapato boneca preto com tiras coloridas no bico.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 5 },
+      { "size": "36", "stock": 8 },
+      { "size": "37", "stock": 4 },
+      { "size": "38", "stock": 3 }
+    ],
+    "tags": ["sapato-boneca", "preto", "colorido", "casual", "criativo"],
+    "badge": "bestseller",
+    "badgeLabel": "Best Seller",
+    "material": "Couro",
+    "color": "Preto"
+  },
+  {
+    "id": "9",
+    "slug": "sapato-preto-fechado-amarracao-frontal",
+    "name": "Sapato Preto Fechado com Amarração Frontal",
+    "description": "Sapato feminino fechado em couro preto com amarração frontal e solado confortável. Um modelo minimalista, versátil e ideal para o dia a dia.",
+    "shortDesc": "Couro preto, amarração frontal e visual minimalista",
+    "price": 30990,
+    "originalPrice": 35990,
+    "category": "sapatos",
+    "categoryLabel": "Sapatos",
+    "images": [
+      "/imagens-produtos/Sapato preto fechado com amarração frontal.png"
+    ],
+    "variants": [
+      { "size": "35", "stock": 4 },
+      { "size": "36", "stock": 6 },
+      { "size": "37", "stock": 7 },
+      { "size": "38", "stock": 5 }
+    ],
+    "tags": ["sapato", "preto", "fechado", "amarracao", "minimalista"],
+    "badge": "classic",
+    "badgeLabel": "Clássico",
+    "material": "Couro",
+    "color": "Preto"
+  }
+]

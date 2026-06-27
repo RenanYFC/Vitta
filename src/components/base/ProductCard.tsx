@@ -14,16 +14,21 @@ const ProductCard = memo(function ProductCard({ product, onQuickView }: ProductC
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showSizeError, setShowSizeError] = useState(false);
   const toggleWishlist = useCartStore((s) => s.toggleWishlist);
-  const isInWishlist = useCartStore((s) => s.isInWishlist);
+  const wishlist = useCartStore((s) => s.wishlist);
   const addToCart = useCartStore((s) => s.addToCart);
 
-  const inWishlist = isInWishlist(product.id);
-  const availableSizes = product.variants.filter((v) => v.stock > 0);
+  const inWishlist = wishlist.includes(product.id);
 
-  const badgeColors = {
+  const badgeColors: Record<string, string> = {
     novo: 'bg-lavender',
+    new: 'bg-lavender',
     bestseller: 'bg-teal',
     oferta: 'bg-[#C8553D]',
+    sale: 'bg-[#C8553D]',
+    highlight: 'bg-lavender',
+    vintage: 'bg-teal',
+    exclusive: 'bg-teal',
+    classic: 'bg-brand-text',
   };
 
   const handleAddToCart = () => {
@@ -42,23 +47,26 @@ const ProductCard = memo(function ProductCard({ product, onQuickView }: ProductC
       onMouseLeave={() => setHovered(false)}
     >
       {/* Image area */}
-      <Link
-        to={`/produto/${product.slug}`}
-        className="block relative aspect-[3/4] bg-cream overflow-hidden"
-      >
-        <div className="flex items-center justify-center w-full h-full p-4">
-          <img
-            src={product.images[0]}
-            alt={product.name}
-            loading="lazy"
-            className="max-w-[85%] max-h-[85%] object-contain transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
+      <div className="relative aspect-[3/4] bg-cream overflow-hidden">
+        <Link
+          to={`/produto/${product.slug}`}
+          className="block w-full h-full"
+        >
+          <div className="flex items-center justify-center w-full h-full p-4">
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              loading="lazy"
+              className="max-w-[85%] max-h-[85%] object-contain transition-transform duration-500 group-hover:scale-105"
+              style={{ mixBlendMode: 'multiply' }}
+            />
+          </div>
+        </Link>
 
         {/* Badge */}
         {product.badge && product.badgeLabel && (
           <span
-            className={`absolute top-3 left-3 px-3 py-1 rounded-full font-body text-[11px] font-semibold text-white ${badgeColors[product.badge]}`}
+            className={`absolute top-3 left-3 px-3 py-1 rounded-full font-body text-[11px] font-semibold text-white ${badgeColors[product.badge] || 'bg-teal'}`}
           >
             {product.badgeLabel}
           </span>
@@ -102,7 +110,7 @@ const ProductCard = memo(function ProductCard({ product, onQuickView }: ProductC
             Ver detalhes
           </Link>
         </div>
-      </Link>
+      </div>
 
       {/* Info */}
       <div className="pt-3 px-1">

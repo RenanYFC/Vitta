@@ -11,6 +11,8 @@ export interface CartItem {
 interface CartStore {
   items: CartItem[];
   wishlist: string[];
+  cartOpen: boolean;
+  setCartOpen: (open: boolean) => void;
   addToCart: (product: Product, size: string) => void;
   removeFromCart: (productId: string, size: string) => void;
   updateQuantity: (productId: string, size: string, quantity: number) => void;
@@ -26,6 +28,8 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       items: [],
       wishlist: [],
+      cartOpen: false,
+      setCartOpen: (open) => set({ cartOpen: open }),
 
       addToCart: (product, size) => {
         const { items } = get();
@@ -39,9 +43,13 @@ export const useCartStore = create<CartStore>()(
                 ? { ...item, quantity: item.quantity + 1 }
                 : item,
             ),
+            cartOpen: true,
           });
         } else {
-          set({ items: [...items, { product, size, quantity: 1 }] });
+          set({
+            items: [...items, { product, size, quantity: 1 }],
+            cartOpen: true,
+          });
         }
       },
 

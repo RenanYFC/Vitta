@@ -18,17 +18,17 @@ export default function ProductDetail() {
 
   const addToCart = useCartStore((s) => s.addToCart);
   const toggleWishlist = useCartStore((s) => s.toggleWishlist);
-  const isInWishlist = useCartStore((s) => s.isInWishlist);
+  const wishlist = useCartStore((s) => s.wishlist);
 
   const product = useMemo(() => {
     return products.find((p) => p.slug === slug) || products[0];
-  }, [slug]);
+  }, [products, slug]);
 
   const relatedProducts = useMemo(() => {
     return products
       .filter((p) => p.id !== product.id && p.category === product.category)
       .slice(0, 4);
-  }, [product]);
+  }, [product, products]);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
@@ -38,7 +38,7 @@ export default function ProductDetail() {
     addToCart(product, selectedSize);
   };
 
-  const inWishlist = isInWishlist(product.id);
+  const inWishlist = wishlist.includes(product.id);
 
   const sizeGuideData = [
     { br: '34', cm: '22.0' },

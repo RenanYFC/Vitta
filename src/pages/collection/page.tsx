@@ -4,9 +4,13 @@ import ProductCard from '@/components/base/ProductCard';
 import QuickViewModal from '@/components/feature/QuickViewModal';
 import ScrollToTop from '@/components/feature/ScrollToTop';
 import type { Product } from '@/mocks/products';
-import { products, categories, formatPrice } from '@/mocks/products';
+import { categories, formatPrice } from '@/mocks/products';
+import { useProductStore } from '@/store/useProductStore';
 
 export default function Collection() {
+  const products = useProductStore((s) => s.products);
+  const loading = useProductStore((s) => s.loading);
+
   const [searchParams] = useSearchParams();
   const urlCategory = searchParams.get('categoria');
 
@@ -18,10 +22,11 @@ export default function Collection() {
   const [sortOption, setSortOption] = useState('relevancia');
 
   const allSizes = ['34', '35', '36', '37', '38', '39', '40', '41'];
-  const allColors = [...new Set(products.map((p) => p.color))];
-  const allMaterials = [...new Set(products.map((p) => p.material))];
+  const allColors = useMemo(() => [...new Set(products.map((p) => p.color))], [products]);
+  const allMaterials = useMemo(() => [...new Set(products.map((p) => p.material))], [products]);
 
   const filteredProducts = useMemo(() => {
+    if (!products || products.length === 0) return [];
     let result = [...products];
 
     if (selectedCategory && selectedCategory !== 'todos') {
@@ -55,7 +60,7 @@ export default function Collection() {
     }
 
     return result;
-  }, [selectedCategory, selectedSizes, priceRange, selectedColors, selectedMaterials, sortOption]);
+  }, [products, selectedCategory, selectedSizes, priceRange, selectedColors, selectedMaterials, sortOption]);
 
   const toggleSize = (size: string) => {
     setSelectedSizes((prev) =>
@@ -136,6 +141,17 @@ export default function Collection() {
   }, [selectedCategory, selectedSizes, selectedColors, selectedMaterials, priceRange]);
 
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+
+  if (loading || !products || products.length === 0) {
+    return (
+      <div className="min-h-screen bg-off-white flex items-center justify-center py-20">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-12 h-12 border-4 border-teal border-t-transparent rounded-full animate-spin"></div>
+          <span className="font-body text-sm text-brand-secondary">Carregando coleção...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-off-white pt-8 md:pt-12">
@@ -340,7 +356,7 @@ export default function Collection() {
               </div>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style={{ gap: '1px' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style={{ rowGap: '40px', columnGap: '24px' }}>
               {filteredProducts.map((product) => (
                 <ProductCard
                   key={product.id}

@@ -17,7 +17,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
 
   const addToCart = useCartStore((s) => s.addToCart);
   const toggleWishlist = useCartStore((s) => s.toggleWishlist);
-  const isInWishlist = useCartStore((s) => s.isInWishlist);
+  const wishlist = useCartStore((s) => s.wishlist);
 
   useEffect(() => {
     setSelectedImage(0);
@@ -36,7 +36,7 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
 
   if (!product) return null;
 
-  const inWishlist = isInWishlist(product.id);
+  const inWishlist = wishlist.includes(product.id);
 
   const handleAddToCart = () => {
     if (!selectedSize) {

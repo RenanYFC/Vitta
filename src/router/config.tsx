@@ -8,6 +8,7 @@ import Cart from "../pages/cart/page";
 import Checkout from "../pages/checkout/page";
 import OrderConfirmation from "../pages/confirmation/page";
 import About from "../pages/about/page";
+import Favorites from "../pages/favorites/page";
 
 const routes: RouteObject[] = [
   {
@@ -44,7 +45,7 @@ const routes: RouteObject[] = [
       },
       {
         path: "/favoritos",
-        element: <NotFound />,
+        element: <Favorites />,
       },
       {
         path: "/conta",

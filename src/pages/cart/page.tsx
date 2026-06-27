@@ -91,6 +91,7 @@ export default function Cart() {
                       src={item.product.images[0]}
                       alt={item.product.name}
                       className="w-full h-full object-cover object-top"
+                      style={{ mixBlendMode: 'multiply' }}
                     />
                   </Link>
                   <div className="flex-1 min-w-0">
