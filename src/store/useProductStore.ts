@@ -15,7 +15,7 @@ export const useProductStore = create<ProductStore>((set) => ({
   fetchProducts: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await fetch('/api/products');
+      const response = await fetch('https://vitta-backend-mock.onrender.com/api/products');
       if (!response.ok) {
         throw new Error('Falha ao carregar produtos do servidor backend');
       }
